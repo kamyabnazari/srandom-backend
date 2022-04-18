@@ -1,7 +1,7 @@
 # Srandom
 
 ## Beschreibung
-Die folgende Applikation "Srandom" erfüllt die Aufgabe, zufällige Lieder und Empfehlungen den Besucher vorzuschlagen und diese mit einem Klick für weiteres hören zur Verfügung zustellen. Es wird dazu noch die Möglichkeit gegeben, nach der Registrierung, Playlists für Lieblingslieder zu erstellen und diese im Nutzerkonto zu speichern. Es können zahlreiche Playlists mit unterschiedliche Namen erstellt werden und diese Nach Wahl auch gelöscht.
+Die folgende Applikation "Srandom" erfüllt die Aufgabe, zufällige Lieder und Empfehlungen den Besucher vorzuschlagen und diese mit einem Klick für weiteres hören zur Verfügung zustellen. 
 
 ## Mitglieder
 * Florina Jonuzi (@JonuziFlorina)
