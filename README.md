@@ -1,3 +1,5 @@
+[![Java CI with Gradle](https://github.com/kamyab-nazari/Srandom/actions/workflows/gradle.yml/badge.svg?branch=main)](https://github.com/kamyab-nazari/Srandom/actions/workflows/gradle.yml)
+
 # Srandom
 
 ## Beschreibung
