@@ -17,6 +17,6 @@ jobs:
           heroku_email: "kamyab.nazari@student.htw-berlin.de"
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY_2}}
           heroku_app_name: "srandom-app-2" #Must be unique in Heroku
           heroku_email: "florina.jonuzi@student.htw-berlin.de"
