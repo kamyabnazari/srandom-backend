@@ -44,4 +44,10 @@ public class SrandomRestController {
         return srandom != null?  ResponseEntity.ok(srandom) : ResponseEntity.notFound().build();
 
     }
+
+    @DeleteMapping(path = "/api/v1/srandom/{id}")
+    public ResponseEntity<Void> deleteSandrom(@PathVariable Long id){
+        boolean succesful = srandomService.deleteById(id);
+        return succesful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
 }

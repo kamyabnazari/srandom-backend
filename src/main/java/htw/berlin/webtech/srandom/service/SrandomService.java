@@ -54,6 +54,13 @@ public class SrandomService {
 
     }
 
+    public boolean deleteById(Long id) {
+        if (!srandomRepository.existsById(id)) {
+            return false;
+        }
+        srandomRepository.deleteById(id);
+        return true;
+    }
     private Srandom transformEntity(SrandomEntity srandomEntity){
         return new Srandom (
 
