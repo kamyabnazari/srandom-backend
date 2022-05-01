@@ -26,6 +26,11 @@ public class SrandomService {
                 .collect(Collectors.toList());
 
     }
+
+    public Srandom findById(Long id){
+        var srandomEntity  = srandomRepository.findById(id);
+        return srandomEntity.map(this :: transformEntity).orElse(null);
+    }
     public Srandom create(SrandomCreateRequest request) {
         var srandomEntity = new SrandomEntity(request.getTitel(), request.getGenre(), request.getAutor(), request.getYtLink(), request.getErscheinungsdatum());
      srandomEntity = srandomRepository.save(srandomEntity);

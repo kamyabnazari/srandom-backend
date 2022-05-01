@@ -4,11 +4,9 @@ import htw.berlin.webtech.srandom.persistence.SrandomRepository;
 import htw.berlin.webtech.srandom.service.SrandomService;
 import htw.berlin.webtech.srandom.web.api.Srandom;
 import htw.berlin.webtech.srandom.web.api.SrandomCreateRequest;
+import org.hibernate.annotations.GeneratorType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -27,6 +25,12 @@ public class SrandomRestController {
     public ResponseEntity<List<Srandom>> fetchSrandom() {
         return ResponseEntity.ok(srandomService.findAll());
 
+    }
+
+    @GetMapping(path = "/api/v1/srandom/{id}")
+    public ResponseEntity<Srandom> fetchSrandomById(@PathVariable Long id) {
+      var srandom = srandomService.findById(id);
+      return srandom != null?  ResponseEntity.ok(srandom) : ResponseEntity.notFound().build();
     }
 
     @PostMapping(path = "/api/v1/srandom")
