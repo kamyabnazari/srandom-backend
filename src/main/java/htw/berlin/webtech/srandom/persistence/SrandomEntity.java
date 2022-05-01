@@ -26,8 +26,7 @@ public class SrandomEntity {
     @Column( name = "erscheinungsdatum")
     private long erscheinungsdatum;
 
-   public SrandomEntity(long id, String titel, String genre, String ytLink, String autor, long erscheinungsdatum){
-       this.id = id;
+   public SrandomEntity( String titel, String genre, String ytLink, String autor, long erscheinungsdatum){
        this.titel = titel;
        this.genre = genre;
        this.ytLink = ytLink;
