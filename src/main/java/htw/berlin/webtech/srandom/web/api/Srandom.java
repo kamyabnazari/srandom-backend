@@ -1,4 +1,4 @@
-package htw.berlin.webtech.srandom.web.api.api;
+package htw.berlin.webtech.srandom.web.api;
 
 public class Srandom {
     private long id;

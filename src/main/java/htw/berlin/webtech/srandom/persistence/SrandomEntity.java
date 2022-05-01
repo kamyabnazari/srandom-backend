@@ -3,7 +3,7 @@ package htw.berlin.webtech.srandom.persistence;
 import javax.persistence.*;
 
 @Entity(name = "songs")
-public class SongEntity {
+public class SrandomEntity {
 
     @Id
     //numerischer Wert, sobald ein neuer Datensatz hinzugefügt wird -> Strategy
@@ -26,7 +26,7 @@ public class SongEntity {
     @Column( name = "erscheinungsdatum")
     private long erscheinungsdatum;
 
-   public SongEntity(long id, String titel, String genre, String ytLink, String autor, long erscheinungsdatum){
+   public SrandomEntity(long id, String titel, String genre, String ytLink, String autor, long erscheinungsdatum){
        this.id = id;
        this.titel = titel;
        this.genre = genre;
@@ -35,7 +35,7 @@ public class SongEntity {
        this.erscheinungsdatum = erscheinungsdatum;
    }
 
-   protected  SongEntity(){}
+   protected SrandomEntity(){}
 
     public Long getId() {return id;}
 
