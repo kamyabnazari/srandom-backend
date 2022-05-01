@@ -1,6 +1,6 @@
 package htw.berlin.webtech.srandom.web.api;
 
-public class SrandomCreateRequest {
+public class SrandomCreateOrUpdateRequest {
 
     private long id;
     private String titel;
@@ -11,7 +11,7 @@ public class SrandomCreateRequest {
     private String autor;
     private long erscheinungsdatum;
 
-    public SrandomCreateRequest(String titel, String genre, String ytLink, String autor, long erscheinungsdatum){
+    public SrandomCreateOrUpdateRequest(String titel, String genre, String ytLink, String autor, long erscheinungsdatum){
         this.titel = titel;
         this.genre = genre;
         this.ytLink = ytLink;

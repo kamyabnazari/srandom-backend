@@ -1,10 +1,8 @@
 package htw.berlin.webtech.srandom.web;
 
-import htw.berlin.webtech.srandom.persistence.SrandomRepository;
 import htw.berlin.webtech.srandom.service.SrandomService;
 import htw.berlin.webtech.srandom.web.api.Srandom;
-import htw.berlin.webtech.srandom.web.api.SrandomCreateRequest;
-import org.hibernate.annotations.GeneratorType;
+import htw.berlin.webtech.srandom.web.api.SrandomCreateOrUpdateRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,9 +32,16 @@ public class SrandomRestController {
     }
 
     @PostMapping(path = "/api/v1/srandom")
-    public ResponseEntity<Void> createSrandom(@RequestBody SrandomCreateRequest request) throws URISyntaxException {
+    public ResponseEntity<Void> createSrandom(@RequestBody SrandomCreateOrUpdateRequest request) throws URISyntaxException {
     var srandom = srandomService.create(request);
-   URI uri = new URI( "/api/v1/srandom/" + srandom.getId());
+    URI uri = new URI( "/api/v1/srandom/" + srandom.getId());
     return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping(path = "/api/v1/srandom/{id}")
+    public ResponseEntity<Srandom> updateSrandom(@PathVariable Long id, @RequestBody SrandomCreateOrUpdateRequest request){
+        var srandom = srandomService.update(id, request);
+        return srandom != null?  ResponseEntity.ok(srandom) : ResponseEntity.notFound().build();
+
     }
 }
