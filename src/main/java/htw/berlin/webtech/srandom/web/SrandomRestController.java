@@ -4,9 +4,9 @@
 
 package htw.berlin.webtech.srandom.web;
 
-import htw.berlin.webtech.srandom.service.SrandomService;
-import htw.berlin.webtech.srandom.web.api.Srandom;
-import htw.berlin.webtech.srandom.web.api.SrandomCreateOrUpdateRequest;
+import htw.berlin.webtech.srandom.service.SongService;
+import htw.berlin.webtech.srandom.web.api.Song;
+import htw.berlin.webtech.srandom.web.api.SongCreateOrUpdateRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,33 +17,33 @@ import java.util.List;
 @RestController
 public class SrandomRestController {
 
-    private final SrandomService srandomService;
+    private final SongService srandomService;
 
-    public SrandomRestController(SrandomService srandomService) {
+    public SrandomRestController(SongService srandomService) {
         this.srandomService = srandomService;
     }
 
     @GetMapping(path = "/api/v1/srandom")
-    public ResponseEntity<List<Srandom>> fetchSrandom() {
+    public ResponseEntity<List<Song>> fetchSrandom() {
         return ResponseEntity.ok(srandomService.findAll());
 
     }
 
     @GetMapping(path = "/api/v1/srandom/{id}")
-    public ResponseEntity<Srandom> fetchSrandomById(@PathVariable Long id) {
+    public ResponseEntity<Song> fetchSrandomById(@PathVariable Long id) {
       var srandom = srandomService.findById(id);
       return srandom != null?  ResponseEntity.ok(srandom) : ResponseEntity.notFound().build();
     }
 
     @PostMapping(path = "/api/v1/srandom")
-    public ResponseEntity<Void> createSrandom(@RequestBody SrandomCreateOrUpdateRequest request) throws URISyntaxException {
+    public ResponseEntity<Void> createSrandom(@RequestBody SongCreateOrUpdateRequest request) throws URISyntaxException {
     var srandom = srandomService.create(request);
     URI uri = new URI( "/api/v1/srandom/" + srandom.getId());
     return ResponseEntity.created(uri).build();
     }
 
     @PutMapping(path = "/api/v1/srandom/{id}")
-    public ResponseEntity<Srandom> updateSrandom(@PathVariable Long id, @RequestBody SrandomCreateOrUpdateRequest request){
+    public ResponseEntity<Song> updateSrandom(@PathVariable Long id, @RequestBody SongCreateOrUpdateRequest request){
         var srandom = srandomService.update(id, request);
         return srandom != null?  ResponseEntity.ok(srandom) : ResponseEntity.notFound().build();
 

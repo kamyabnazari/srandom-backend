@@ -1,6 +1,6 @@
 package htw.berlin.webtech.srandom.web.api;
 
-public class SrandomCreateOrUpdateRequest {
+public class SongCreateOrUpdateRequest {
 
     private long id;
     private String titel;
@@ -10,7 +10,7 @@ public class SrandomCreateOrUpdateRequest {
     private String autor;
     private long erscheinungsdatum;
 
-    public SrandomCreateOrUpdateRequest(String titel, String genre, String songLink, String autor, long erscheinungsdatum) {
+    public SongCreateOrUpdateRequest(String titel, String genre, String songLink, String autor, long erscheinungsdatum) {
         this.titel = titel;
         this.genre = genre;
         this.songLink = songLink;
@@ -34,11 +34,11 @@ public class SrandomCreateOrUpdateRequest {
         this.genre = genre;
     }
 
-    public String getYtLink() {
+    public String getSongLink() {
         return songLink;
     }
 
-    public void setYtLink(String songLink) {
+    public void setSongLink(String songLink) {
         this.songLink = songLink;
     }
 

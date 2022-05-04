@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SrandomRepository extends JpaRepository<SrandomEntity, Long> {
+public interface SongRepository extends JpaRepository<SongEntity, Long> {
 
-    List<SrandomEntity> findAllByAutor(String autor);
+    List<SongEntity> findAllByAutor(String autor);
 
 }

@@ -4,16 +4,15 @@
 
 package htw.berlin.webtech.srandom.web.api;
 
-public class Srandom {
+public class Song {
     private long id;
     private String titel;
     private String genre;
-    // youtube oder spotify link
     private String songLink;
     private String autor;
     private long erscheinungsdatum;
 
-    public Srandom(long id, String titel, String genre, String songLink, String autor, long erscheinungsdatum) {
+    public Song(long id, String titel, String genre, String songLink, String autor, long erscheinungsdatum) {
         this.id = id;
         this.titel = titel;
         this.genre = genre;
