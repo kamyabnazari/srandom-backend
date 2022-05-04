@@ -1,3 +1,7 @@
+/**
+ * REST Controller um HTTP Methoden zu Mappen
+ */
+
 package htw.berlin.webtech.srandom.web;
 
 import htw.berlin.webtech.srandom.service.SrandomService;

@@ -32,7 +32,7 @@ public class SrandomService {
         return srandomEntity.map(this :: transformEntity).orElse(null);
     }
     public Srandom create(SrandomCreateOrUpdateRequest request) {
-        var srandomEntity = new SrandomEntity(request.getTitel(), request.getGenre(), request.getAutor(), request.getYtLink(), request.getErscheinungsdatum());
+        var srandomEntity = new SrandomEntity(request.getTitel(), request.getGenre(), request.getYtLink(), request.getAutor(), request.getErscheinungsdatum());
      srandomEntity = srandomRepository.save(srandomEntity);
      return transformEntity(srandomEntity);
     }
