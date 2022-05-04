@@ -1,6 +1,6 @@
 [![Java CI with Gradle](https://github.com/kamyab-nazari/Srandom/actions/workflows/gradle.yml/badge.svg?branch=main)](https://github.com/kamyab-nazari/Srandom/actions/workflows/gradle.yml)
 
-# Srandom
+# Srandom-Backend
 
 ## Beschreibung
 Die folgende Applikation "Srandom" erfüllt die Aufgabe, zufällige Lieder und Empfehlungen den Besucher vorzuschlagen und diese mit einem Klick für weiteres hören zur Verfügung zustellen. 
