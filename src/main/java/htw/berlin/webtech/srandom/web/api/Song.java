@@ -1,5 +1,6 @@
 /**
- * Datenhaltungs Klasse Srandom mit Variablen, Setter und Getter Methoden
+ * Datenhaltungs Klasse Song mit Variablen, Setter und Getter Methoden
+ * This is the Java Object containing all the Information for further processing
  */
 
 package htw.berlin.webtech.srandom.web.api;
@@ -53,11 +54,11 @@ public class Song {
         return autor;
     }
 
-    public String getYtLink() {
+    public String getSongLink() {
         return songLink;
     }
 
-    public void setYtLink(String songLink) {
+    public void setSongLink(String songLink) {
         this.songLink = songLink;
     }
 

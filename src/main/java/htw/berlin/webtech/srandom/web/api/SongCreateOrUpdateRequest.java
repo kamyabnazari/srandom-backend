@@ -1,3 +1,7 @@
+/**
+ * Klasse benutzt um Songs zu erstellen und Updaten, ohne ID
+ * */
+
 package htw.berlin.webtech.srandom.web.api;
 
 public class SongCreateOrUpdateRequest {

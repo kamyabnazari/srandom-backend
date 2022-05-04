@@ -1,3 +1,7 @@
+/**
+ * Main Application Method, die eine Springboot-Anwendung aufruft
+ */
+
 package htw.berlin.webtech.srandom;
 
 import org.springframework.boot.SpringApplication;

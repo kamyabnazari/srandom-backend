@@ -1,3 +1,4 @@
+# Local Database to HAVE correct tests in Gradle and Locally
 spring:
   datasource:
     username: sa

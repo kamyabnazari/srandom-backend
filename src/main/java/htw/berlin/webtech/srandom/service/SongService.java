@@ -1,3 +1,7 @@
+/**
+ * Funktionen und Methoden für den Song Entity
+ */
+
 package htw.berlin.webtech.srandom.service;
 
 import htw.berlin.webtech.srandom.persistence.SongEntity;
@@ -14,34 +18,32 @@ public class SongService {
 
     private final SongRepository songRepository;
 
-    public SongService(SongRepository srandomRepository){
-        this.songRepository = srandomRepository;
-
+    public SongService(SongRepository songRepository) {
+        this.songRepository = songRepository;
     }
 
-    public List<Song> findAll(){
-        List<SongEntity> song= songRepository.findAll();
+    public List<Song> findAll() {
+        List<SongEntity> song = songRepository.findAll();
         return song.stream()
                 .map(this::transformEntity)
                 .collect(Collectors.toList());
-
     }
 
-    public Song findById(Long id){
-        var songEntity  = songRepository.findById(id);
-        return songEntity.map(this :: transformEntity).orElse(null);
+    public Song findById(Long id) {
+        var songEntity = songRepository.findById(id);
+        return songEntity.map(this::transformEntity).orElse(null);
     }
+
     public Song create(SongCreateOrUpdateRequest request) {
         var songEntity = new SongEntity(request.getTitel(), request.getGenre(), request.getSongLink(), request.getAutor(), request.getErscheinungsdatum());
-     songEntity = songRepository.save(songEntity);
-     return transformEntity(songEntity);
+        songEntity = songRepository.save(songEntity);
+        return transformEntity(songEntity);
     }
 
-    public Song update(Long id, SongCreateOrUpdateRequest request){
+    public Song update(Long id, SongCreateOrUpdateRequest request) {
         var songEntityOptional = songRepository.findById(id);
-        if(songEntityOptional.isEmpty()){
+        if (songEntityOptional.isEmpty()) {
             return null;
-
         }
         var songEntity = songEntityOptional.get();
         songEntity.setAutor(request.getAutor());
@@ -51,7 +53,6 @@ public class SongService {
         songRepository.save(songEntity);
 
         return transformEntity(songEntity);
-
     }
 
     public boolean deleteById(Long id) {
@@ -61,7 +62,8 @@ public class SongService {
         songRepository.deleteById(id);
         return true;
     }
-    private Song transformEntity(SongEntity songEntity){
+
+    private Song transformEntity(SongEntity songEntity) {
         return new Song(
 
                 songEntity.getId(),
@@ -72,6 +74,3 @@ public class SongService {
                 songEntity.getErscheinungsdatum());
     }
 }
-
-
-

@@ -1,3 +1,7 @@
+/**
+ * Interface welche zu Laufzeit funktionen zur Verfügung stellt, um mit dem Song Entity zu arbeiten
+ * */
+
 package htw.berlin.webtech.srandom.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,5 +13,4 @@ import java.util.List;
 public interface SongRepository extends JpaRepository<SongEntity, Long> {
 
     List<SongEntity> findAllByAutor(String autor);
-
 }
