@@ -5,16 +5,15 @@ public class SrandomCreateOrUpdateRequest {
     private long id;
     private String titel;
     private String genre;
-    //private String imageUrl;
-    // youtubeLink oder spotify je nach dem
-    private String ytLink;
+    // youtube oder spotify Link
+    private String songLink;
     private String autor;
     private long erscheinungsdatum;
 
-    public SrandomCreateOrUpdateRequest(String titel, String genre, String ytLink, String autor, long erscheinungsdatum){
+    public SrandomCreateOrUpdateRequest(String titel, String genre, String songLink, String autor, long erscheinungsdatum) {
         this.titel = titel;
         this.genre = genre;
-        this.ytLink = ytLink;
+        this.songLink = songLink;
         this.autor = autor;
         this.erscheinungsdatum = erscheinungsdatum;
     }
@@ -36,11 +35,11 @@ public class SrandomCreateOrUpdateRequest {
     }
 
     public String getYtLink() {
-        return ytLink;
+        return songLink;
     }
 
-    public void setYtLink(String ytLink) {
-        this.ytLink = ytLink;
+    public void setYtLink(String songLink) {
+        this.songLink = songLink;
     }
 
     public String getAutor() {

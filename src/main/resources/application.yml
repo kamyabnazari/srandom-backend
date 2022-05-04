@@ -5,6 +5,7 @@ spring:
     url: ${DATASOURCE_URL}
     hikari:
       maximum-pool-size: 5
+    driver-class-name: org.postgresql.Driver
   jpa:
     properties:
       hibernate:

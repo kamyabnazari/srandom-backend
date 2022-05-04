@@ -1,24 +1,25 @@
+/**
+ * Datenhaltungs Klasse Srandom mit Variablen, Setter und Getter Methoden
+ */
+
 package htw.berlin.webtech.srandom.web.api;
 
 public class Srandom {
     private long id;
     private String titel;
     private String genre;
-    //private String imageUrl;
-    // youtubeLink oder spotify je nach dem
-    private String ytLink;
+    // youtube oder spotify link
+    private String songLink;
     private String autor;
     private long erscheinungsdatum;
 
-    public Srandom(long id, String titel, String genre, String ytLink , String autor, long erscheinungsdatum) {
+    public Srandom(long id, String titel, String genre, String songLink, String autor, long erscheinungsdatum) {
         this.id = id;
         this.titel = titel;
         this.genre = genre;
         this.autor = autor;
-        this.ytLink = ytLink;
+        this.songLink = songLink;
         this.erscheinungsdatum = erscheinungsdatum;
-       // this.imageUrl = imageUrl;
-
     }
 
     public String getGenre() {
@@ -52,20 +53,13 @@ public class Srandom {
     public String getAutor() {
         return autor;
     }
-   /* public String getImageUrl() {
-        return imageUrl;
+
+    public String getYtLink() {
+        return songLink;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }  */
-
-   public String getYtLink() {
-        return ytLink;
-    }
-
-    public void setYtLink(String ytLink) {
-        this.ytLink = ytLink;
+    public void setYtLink(String songLink) {
+        this.songLink = songLink;
     }
 
     public long getErscheinungsdatum() {

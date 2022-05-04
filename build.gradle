@@ -19,7 +19,7 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.postgresql:postgresql:42.3.4'
-	testImplementation 'com.h2database:h2:1.4.200'
+	testImplementation 'com.h2database:h2:2.1.212'
 }
 
 tasks.named('test') {
