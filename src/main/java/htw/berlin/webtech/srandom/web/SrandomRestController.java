@@ -23,33 +23,33 @@ public class SrandomRestController {
         this.songService = songService;
     }
 
-    @GetMapping(path = "/api/v1/srandom")
+    @GetMapping(path = "/api/v1/songs")
     public ResponseEntity<List<Song>> fetchSongs() {
         return ResponseEntity.ok(songService.findAll());
 
     }
 
-    @GetMapping(path = "/api/v1/srandom/{id}")
+    @GetMapping(path = "/api/v1/songs/{id}")
     public ResponseEntity<Song> fetchSongsById(@PathVariable Long id) {
         var song = songService.findById(id);
         return song != null ? ResponseEntity.ok(song) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping(path = "/api/v1/srandom")
+    @PostMapping(path = "/api/v1/songs")
     public ResponseEntity<Void> createSong(@RequestBody SongCreateOrUpdateRequest request) throws URISyntaxException {
         var song = songService.create(request);
-        URI uri = new URI("/api/v1/srandom/" + song.getId());
+        URI uri = new URI("/api/v1/songs/" + song.getId());
         return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping(path = "/api/v1/srandom/{id}")
+    @PutMapping(path = "/api/v1/songs/{id}")
     public ResponseEntity<Song> updateSong(@PathVariable Long id, @RequestBody SongCreateOrUpdateRequest request) {
         var song = songService.update(id, request);
         return song != null ? ResponseEntity.ok(song) : ResponseEntity.notFound().build();
 
     }
 
-    @DeleteMapping(path = "/api/v1/srandom/{id}")
+    @DeleteMapping(path = "/api/v1/songs/{id}")
     public ResponseEntity<Void> deleteSong(@PathVariable Long id) {
         boolean successful = songService.deleteById(id);
         return successful ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
