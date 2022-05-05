@@ -22,6 +22,9 @@ public class SongCreateOrUpdateRequest {
         this.erscheinungsdatum = erscheinungsdatum;
     }
 
+    // Parameterlosen Konstruktor um Post Requests fürs CorsMapping zu erlauben
+    public SongCreateOrUpdateRequest() {}
+
     public String getTitel() {
         return titel;
     }
