@@ -11,12 +11,13 @@ public class SongCreateOrUpdateRequest {
     // youtube oder spotify Link
     private String songLink;
     private long releaseYear;
-
-    public SongCreateOrUpdateRequest(String title, String author, long releaseYear, String songLink) {
+    private boolean isOriginal;
+    public SongCreateOrUpdateRequest(String title, String author, long releaseYear, String songLink, boolean isOriginal) {
         this.title = title;
         this.author = author;
         this.releaseYear = releaseYear;
         this.songLink = songLink;
+        this.isOriginal = isOriginal;
     }
 
     // Parameterlosen Konstruktor um Post Requests fürs CorsMapping zu erlauben
@@ -52,5 +53,13 @@ public class SongCreateOrUpdateRequest {
 
     public void setSongLink(String songLink) {
         this.songLink = songLink;
+    }
+
+    public boolean getIsOriginal() {
+        return isOriginal;
+    }
+
+    public boolean setIsOriginal(boolean isOriginal) {
+        return this.isOriginal = isOriginal;
     }
 }

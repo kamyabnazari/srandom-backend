@@ -35,7 +35,7 @@ public class SongService {
     }
 
     public Song create(SongCreateOrUpdateRequest request) {
-        var songEntity = new SongEntity(request.getTitle(), request.getAuthor(), request.getReleaseYear(), request.getSongLink());
+        var songEntity = new SongEntity(request.getTitle(), request.getAuthor(), request.getReleaseYear(), request.getSongLink(), request.getIsOriginal());
         songEntity = songRepository.save(songEntity);
         return transformEntity(songEntity);
     }
@@ -68,6 +68,7 @@ public class SongService {
                 songEntity.getTitle(),
                 songEntity.getAuthor(),
                 songEntity.getReleaseYear(),
-                songEntity.getSongLink());
+                songEntity.getSongLink(),
+                songEntity.getIsOriginal());
     }
 }

@@ -11,13 +11,15 @@ public class Song {
     private String author;
     private long releaseYear;
     private String songLink;
+    private boolean isOriginal;
 
-    public Song(long id, String title, String author, long releaseYear, String songLink) {
+    public Song(long id, String title, String author, long releaseYear, String songLink, boolean isOriginal) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.releaseYear = releaseYear;
         this.songLink = songLink;
+        this.isOriginal = isOriginal;
     }
     public long getId() {
         return id;
@@ -57,5 +59,13 @@ public class Song {
 
     public void setSongLink(String songLink) {
         this.songLink = songLink;
+    }
+
+    public boolean getIsOriginal() {
+        return isOriginal;
+    }
+
+    public void setOriginal(boolean isOriginal) {
+        this.isOriginal = isOriginal;
     }
 }

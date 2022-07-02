@@ -28,11 +28,15 @@ public class SongEntity {
     @Column(name = "songLink", nullable = false)
     private String songLink;
 
-    public SongEntity(String title, String author, long releaseYear, String songLink) {
+    @Column(name = "isOriginal", nullable = false)
+    private boolean isOriginal;
+
+    public SongEntity(String title, String author, long releaseYear, String songLink, boolean isOriginal) {
         this.title = title;
         this.author = author;
         this.songLink = songLink;
         this.releaseYear = releaseYear;
+        this.isOriginal = isOriginal;
     }
 
     // Parameterlose Konstruktor, welches Hybernate braucht
@@ -74,4 +78,13 @@ public class SongEntity {
     public void setReleaseYear(long releaseYear) {
         this.releaseYear = releaseYear;
     }
+
+    public boolean getIsOriginal() {
+        return isOriginal;
+    }
+
+    public void setIsOriginal(boolean isOriginal) {
+        this.isOriginal = isOriginal;
+    }
+
 }
