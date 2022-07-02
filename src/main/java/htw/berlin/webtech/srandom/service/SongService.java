@@ -35,7 +35,7 @@ public class SongService {
     }
 
     public Song create(SongCreateOrUpdateRequest request) {
-        var songEntity = new SongEntity(request.getTitel(), request.getGenre(), request.getSongLink(), request.getAutor(), request.getErscheinungsdatum());
+        var songEntity = new SongEntity(request.getTitle(), request.getAuthor(), request.getReleaseYear(), request.getSongLink());
         songEntity = songRepository.save(songEntity);
         return transformEntity(songEntity);
     }
@@ -46,10 +46,9 @@ public class SongService {
             return null;
         }
         var songEntity = songEntityOptional.get();
-        songEntity.setAutor(request.getAutor());
-        songEntity.setErscheinungsdatum(request.getErscheinungsdatum());
+        songEntity.setAuthor(request.getAuthor());
+        songEntity.setReleaseYear(request.getReleaseYear());
         songEntity.setSongLink(request.getSongLink());
-        songEntity.setGenre(request.getGenre());
         songRepository.save(songEntity);
 
         return transformEntity(songEntity);
@@ -65,12 +64,10 @@ public class SongService {
 
     private Song transformEntity(SongEntity songEntity) {
         return new Song(
-
                 songEntity.getId(),
-                songEntity.getTitel(),
-                songEntity.getGenre(),
-                songEntity.getSongLink(),
-                songEntity.getAutor(),
-                songEntity.getErscheinungsdatum());
+                songEntity.getTitle(),
+                songEntity.getAuthor(),
+                songEntity.getReleaseYear(),
+                songEntity.getSongLink());
     }
 }

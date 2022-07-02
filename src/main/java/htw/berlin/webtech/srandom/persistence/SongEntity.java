@@ -16,27 +16,23 @@ public class SongEntity {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "titel", nullable = false)
-    private String titel;
+    @Column(name = "title", nullable = false)
+    private String title;
 
-    @Column(name = "genre")
-    private String genre;
+    @Column(name = "author", nullable = false)
+    private String author;
+
+    @Column(name = "releaseYear")
+    private long releaseYear;
 
     @Column(name = "songLink", nullable = false)
     private String songLink;
 
-    @Column(name = "autor", nullable = false)
-    private String autor;
-
-    @Column(name = "erscheinungsdatum")
-    private long erscheinungsdatum;
-
-    public SongEntity(String titel, String genre, String songLink, String autor, long erscheinungsdatum) {
-        this.titel = titel;
-        this.genre = genre;
+    public SongEntity(String title, String author, long releaseYear, String songLink) {
+        this.title = title;
+        this.author = author;
         this.songLink = songLink;
-        this.autor = autor;
-        this.erscheinungsdatum = erscheinungsdatum;
+        this.releaseYear = releaseYear;
     }
 
     // Parameterlose Konstruktor, welches Hybernate braucht
@@ -47,16 +43,20 @@ public class SongEntity {
         return id;
     }
 
-    public String getTitel() {
-        return titel;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getSongLink() {
@@ -67,23 +67,11 @@ public class SongEntity {
         this.songLink = songLink;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public long getReleaseYear() {
+        return releaseYear;
     }
 
-    public String getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public long getErscheinungsdatum() {
-        return erscheinungsdatum;
-    }
-
-    public void setErscheinungsdatum(long erscheinungsdatum) {
-        this.erscheinungsdatum = erscheinungsdatum;
+    public void setReleaseYear(long releaseYear) {
+        this.releaseYear = releaseYear;
     }
 }

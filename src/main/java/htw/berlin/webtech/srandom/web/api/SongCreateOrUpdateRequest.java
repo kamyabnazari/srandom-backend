@@ -6,39 +6,44 @@ package htw.berlin.webtech.srandom.web.api;
 
 public class SongCreateOrUpdateRequest {
 
-    private long id;
-    private String titel;
-    private String genre;
+    private String title;
+    private String author;
     // youtube oder spotify Link
     private String songLink;
-    private String autor;
-    private long erscheinungsdatum;
+    private long releaseYear;
 
-    public SongCreateOrUpdateRequest(String titel, String genre, String songLink, String autor, long erscheinungsdatum) {
-        this.titel = titel;
-        this.genre = genre;
+    public SongCreateOrUpdateRequest(String title, String author, long releaseYear, String songLink) {
+        this.title = title;
+        this.author = author;
+        this.releaseYear = releaseYear;
         this.songLink = songLink;
-        this.autor = autor;
-        this.erscheinungsdatum = erscheinungsdatum;
     }
 
     // Parameterlosen Konstruktor um Post Requests fürs CorsMapping zu erlauben
     public SongCreateOrUpdateRequest() {}
 
-    public String getTitel() {
-        return titel;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setTitle(String titel) {
+        this.title = title;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public long getReleaseYear() {
+        return releaseYear;
+    }
+
+    public void setReleaseYear(long releaseYear) {
+        this.releaseYear = releaseYear;
     }
 
     public String getSongLink() {
@@ -47,21 +52,5 @@ public class SongCreateOrUpdateRequest {
 
     public void setSongLink(String songLink) {
         this.songLink = songLink;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public long getErscheinungsdatum() {
-        return erscheinungsdatum;
-    }
-
-    public void setErscheinungsdatum(long erscheinungsdatum) {
-        this.erscheinungsdatum = erscheinungsdatum;
     }
 }
