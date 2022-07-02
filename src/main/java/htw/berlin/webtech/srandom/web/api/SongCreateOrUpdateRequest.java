@@ -26,7 +26,7 @@ public class SongCreateOrUpdateRequest {
         return title;
     }
 
-    public void setTitle(String titel) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
