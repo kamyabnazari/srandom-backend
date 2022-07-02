@@ -23,10 +23,23 @@ public class SongService {
     }
 
     public List<Song> findAll() {
-        List<SongEntity> song = songRepository.findAll();
-        return song.stream()
+        List<SongEntity> songs = songRepository.findAll();
+        return songs.stream()
                 .map(this::transformEntity)
                 .collect(Collectors.toList());
+    }
+
+    public List<Song> findAllIsFavoriteTrue() {
+        List<SongEntity> songs = songRepository.findAllByIsFavoriteTrue();
+        return songs.stream()
+                .map(this::transformEntity)
+                .collect(Collectors.toList());
+    }
+
+    public Song getRandomSong() {
+        List<SongEntity> songs = songRepository.findAll();
+        var songEntity = songs.get((int) (Math.random() * (songs.size())));
+        return transformEntity(songEntity);
     }
 
     public Song findById(Long id) {
@@ -35,7 +48,7 @@ public class SongService {
     }
 
     public Song create(SongCreateOrUpdateRequest request) {
-        var songEntity = new SongEntity(request.getTitle(), request.getAuthor(), request.getReleaseYear(), request.getSongLink());
+        var songEntity = new SongEntity(request.getTitle(), request.getAuthor(), request.getReleaseYear(), request.getSongLink(), request.getIsOriginal(), request.getIsFavorite());
         songEntity = songRepository.save(songEntity);
         return transformEntity(songEntity);
     }
@@ -46,9 +59,22 @@ public class SongService {
             return null;
         }
         var songEntity = songEntityOptional.get();
+        songEntity.setTitle(request.getTitle());
         songEntity.setAuthor(request.getAuthor());
         songEntity.setReleaseYear(request.getReleaseYear());
         songEntity.setSongLink(request.getSongLink());
+        songRepository.save(songEntity);
+
+        return transformEntity(songEntity);
+    }
+
+    public Song updateIsFavorite(Long id, SongCreateOrUpdateRequest request) {
+        var songEntityOptional = songRepository.findById(id);
+        if (songEntityOptional.isEmpty()) {
+            return null;
+        }
+        var songEntity = songEntityOptional.get();
+        songEntity.setIsFavorite(request.getIsFavorite());
         songRepository.save(songEntity);
 
         return transformEntity(songEntity);
@@ -68,6 +94,8 @@ public class SongService {
                 songEntity.getTitle(),
                 songEntity.getAuthor(),
                 songEntity.getReleaseYear(),
-                songEntity.getSongLink());
+                songEntity.getSongLink(),
+                songEntity.getIsOriginal(),
+                songEntity.getIsFavorite());
     }
 }

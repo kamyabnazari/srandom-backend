@@ -26,12 +26,22 @@ public class SrandomRestController {
     @GetMapping(path = "/api/v1/songs")
     public ResponseEntity<List<Song>> fetchSongs() {
         return ResponseEntity.ok(songService.findAll());
+    }
 
+    @GetMapping(path = "/api/v1/songs/favorites")
+    public ResponseEntity<List<Song>> fetchFavoriteSongs() {
+        return ResponseEntity.ok(songService.findAllIsFavoriteTrue());
     }
 
     @GetMapping(path = "/api/v1/songs/{id}")
     public ResponseEntity<Song> fetchSongsById(@PathVariable Long id) {
         var song = songService.findById(id);
+        return song != null ? ResponseEntity.ok(song) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping(path = "/api/v1/songs/random")
+    public ResponseEntity<Song> fetchRandomSong() {
+        var song = songService.getRandomSong();
         return song != null ? ResponseEntity.ok(song) : ResponseEntity.notFound().build();
     }
 
@@ -46,7 +56,12 @@ public class SrandomRestController {
     public ResponseEntity<Song> updateSong(@PathVariable Long id, @RequestBody SongCreateOrUpdateRequest request) {
         var song = songService.update(id, request);
         return song != null ? ResponseEntity.ok(song) : ResponseEntity.notFound().build();
+    }
 
+    @PutMapping(path = "/api/v1/songs/favorites/{id}")
+    public ResponseEntity<Song> updateIsFavorite(@PathVariable Long id, @RequestBody SongCreateOrUpdateRequest request) {
+        var song = songService.updateIsFavorite(id, request);
+        return song != null ? ResponseEntity.ok(song) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping(path = "/api/v1/songs/{id}")
@@ -54,4 +69,5 @@ public class SrandomRestController {
         boolean successful = songService.deleteById(id);
         return successful ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
+
 }
