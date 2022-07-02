@@ -12,12 +12,14 @@ public class SongCreateOrUpdateRequest {
     private String songLink;
     private long releaseYear;
     private boolean isOriginal;
-    public SongCreateOrUpdateRequest(String title, String author, long releaseYear, String songLink, boolean isOriginal) {
+    private boolean isFavorite;
+    public SongCreateOrUpdateRequest(String title, String author, long releaseYear, String songLink, boolean isOriginal, boolean isFavorite) {
         this.title = title;
         this.author = author;
         this.releaseYear = releaseYear;
         this.songLink = songLink;
         this.isOriginal = isOriginal;
+        this.isFavorite = isFavorite;
     }
 
     // Parameterlosen Konstruktor um Post Requests fürs CorsMapping zu erlauben
@@ -61,5 +63,13 @@ public class SongCreateOrUpdateRequest {
 
     public boolean setIsOriginal(boolean isOriginal) {
         return this.isOriginal = isOriginal;
+    }
+
+    public boolean getIsFavorite() {
+        return isFavorite;
+    }
+
+    public void setIsFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 }

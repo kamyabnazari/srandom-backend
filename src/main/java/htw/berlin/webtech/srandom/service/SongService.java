@@ -23,8 +23,15 @@ public class SongService {
     }
 
     public List<Song> findAll() {
-        List<SongEntity> song = songRepository.findAll();
-        return song.stream()
+        List<SongEntity> songs = songRepository.findAll();
+        return songs.stream()
+                .map(this::transformEntity)
+                .collect(Collectors.toList());
+    }
+
+    public List<Song> findAllIsFavoriteTrue() {
+        List<SongEntity> songs = songRepository.findAllByIsFavoriteTrue();
+        return songs.stream()
                 .map(this::transformEntity)
                 .collect(Collectors.toList());
     }
@@ -35,7 +42,7 @@ public class SongService {
     }
 
     public Song create(SongCreateOrUpdateRequest request) {
-        var songEntity = new SongEntity(request.getTitle(), request.getAuthor(), request.getReleaseYear(), request.getSongLink(), request.getIsOriginal());
+        var songEntity = new SongEntity(request.getTitle(), request.getAuthor(), request.getReleaseYear(), request.getSongLink(), request.getIsOriginal(), request.getIsFavorite());
         songEntity = songRepository.save(songEntity);
         return transformEntity(songEntity);
     }
@@ -70,6 +77,7 @@ public class SongService {
                 songEntity.getAuthor(),
                 songEntity.getReleaseYear(),
                 songEntity.getSongLink(),
-                songEntity.getIsOriginal());
+                songEntity.getIsOriginal(),
+                songEntity.getIsFavorite());
     }
 }

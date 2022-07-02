@@ -13,7 +13,7 @@ class SrandomApplicationTests {
 	@Test
 	@DisplayName("get method of Song should give back the correct Title")
 	void getSongTitle() {
-		Song songObject = new Song(1, "Sugar", "Maroon 5", 2021, "Link", false);
+		Song songObject = new Song(1, "Sugar", "Maroon 5", 2021, "Link", false, false);
 		String actualTitle = songObject.getTitle();
 		String expectedTitle = "Sugar";
 		assertEquals(expectedTitle, actualTitle);
