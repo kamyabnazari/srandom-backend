@@ -46,6 +46,7 @@ public class SongService {
             return null;
         }
         var songEntity = songEntityOptional.get();
+        songEntity.setTitle(request.getTitle());
         songEntity.setAuthor(request.getAuthor());
         songEntity.setReleaseYear(request.getReleaseYear());
         songEntity.setSongLink(request.getSongLink());
