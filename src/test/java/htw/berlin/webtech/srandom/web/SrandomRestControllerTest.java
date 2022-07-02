@@ -32,10 +32,10 @@ class SrandomRestControllerTest {
     @DisplayName("should return found song from song service")
     void should_return_found_song_from_song_service() throws Exception {
         var song = List.of(
-                new Song(1, "Heart Attack", "https://www.youtube.com/watch?v=qhrdHl1LZH4",
-                        "Noizy X Loredana", 2022),
-                new Song(2, "Tequila","https://www.youtube.com/watch?v=I4ZSvYLnOcQ" ,
-                        "Tayna", 2022)
+                new Song(1, "Heart Attack", "Noizy X Loredana",
+                        2022,"https://www.youtube.com/watch?v=qhrdHl1LZH4", false, false ),
+                new Song(2, "Tequila","Tayna" ,
+                        2022, "https://www.youtube.com/watch?v=I4ZSvYLnOcQ", false, false)
         );
         doReturn(song).when(songService).findAll();
 
@@ -44,12 +44,16 @@ class SrandomRestControllerTest {
                 .andExpect(jsonPath("$.size()").value(2))
                 .andExpect(jsonPath("$[0].id").value(1))
                 .andExpect(jsonPath("$[0].title").value("Heart Attack"))
-                .andExpect(jsonPath("$.[0].song_link").value("https://www.youtube.com/watch?v=qhrdHl1LZH4"))
                 .andExpect(jsonPath("$.[0].author").value("Noizy X Loredana"))
-                .andExpect(jsonPath("$.[0].release_year").value(2022))
+                .andExpect(jsonPath("$.[0].releaseYear").value(2022))
+                .andExpect(jsonPath("$.[0].songLink").value("https://www.youtube.com/watch?v=qhrdHl1LZH4"))
+                .andExpect(jsonPath("$.[0].isOriginal").value(false))
+                .andExpect(jsonPath("$.[0].isFavorite").value(false))
                 .andExpect(jsonPath("$.[1].id").value(2))
                 .andExpect(jsonPath("$.[1].title").value("Tequila"))
-                .andExpect(jsonPath("$.[1].song_link").value("https://www.youtube.com/watch?v=I4ZSvYLnOcQ"))
                 .andExpect(jsonPath("$.[1].author").value("Tayna"))
-                .andExpect(jsonPath("$.[1].release_year").value(2022));
+                .andExpect(jsonPath("$.[1].releaseYear").value(2022))
+                .andExpect(jsonPath("$.[1].songLink").value("https://www.youtube.com/watch?v=I4ZSvYLnOcQ"))
+                .andExpect(jsonPath("$.[1].isOriginal").value(false))
+                .andExpect(jsonPath("$.[1].isFavorite").value(false));
     }}
