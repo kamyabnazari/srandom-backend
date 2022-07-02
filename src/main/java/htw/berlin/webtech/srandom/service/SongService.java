@@ -36,6 +36,12 @@ public class SongService {
                 .collect(Collectors.toList());
     }
 
+    public Song getRandomSong() {
+        List<SongEntity> songs = songRepository.findAll();
+        var songEntity = songs.get((int) (Math.random() * (songs.size())));
+        return transformEntity(songEntity);
+    }
+
     public Song findById(Long id) {
         var songEntity = songRepository.findById(id);
         return songEntity.map(this::transformEntity).orElse(null);

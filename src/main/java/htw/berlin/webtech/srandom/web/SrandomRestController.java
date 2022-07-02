@@ -33,10 +33,15 @@ public class SrandomRestController {
         return ResponseEntity.ok(songService.findAllIsFavoriteTrue());
     }
 
-
     @GetMapping(path = "/api/v1/songs/{id}")
     public ResponseEntity<Song> fetchSongsById(@PathVariable Long id) {
         var song = songService.findById(id);
+        return song != null ? ResponseEntity.ok(song) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping(path = "/api/v1/songs/random")
+    public ResponseEntity<Song> fetchRandomSong() {
+        var song = songService.getRandomSong();
         return song != null ? ResponseEntity.ok(song) : ResponseEntity.notFound().build();
     }
 
