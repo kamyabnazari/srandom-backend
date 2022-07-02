@@ -21,6 +21,7 @@ public class Song {
         this.releaseYear = releaseYear;
         this.songLink = songLink;
         this.isOriginal = isOriginal;
+        this.isFavorite = isFavorite;
     }
     public long getId() {
         return id;

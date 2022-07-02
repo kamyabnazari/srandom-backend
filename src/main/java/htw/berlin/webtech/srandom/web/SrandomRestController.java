@@ -53,6 +53,12 @@ public class SrandomRestController {
         return song != null ? ResponseEntity.ok(song) : ResponseEntity.notFound().build();
     }
 
+    @PutMapping(path = "/api/v1/songs/favorites/{id}")
+    public ResponseEntity<Song> updateIsFavorite(@PathVariable Long id, @RequestBody SongCreateOrUpdateRequest request) {
+        var song = songService.updateIsFavorite(id, request);
+        return song != null ? ResponseEntity.ok(song) : ResponseEntity.notFound().build();
+    }
+
     @DeleteMapping(path = "/api/v1/songs/{id}")
     public ResponseEntity<Void> deleteSong(@PathVariable Long id) {
         boolean successful = songService.deleteById(id);

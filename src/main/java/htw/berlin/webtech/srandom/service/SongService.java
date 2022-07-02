@@ -62,6 +62,18 @@ public class SongService {
         return transformEntity(songEntity);
     }
 
+    public Song updateIsFavorite(Long id, SongCreateOrUpdateRequest request) {
+        var songEntityOptional = songRepository.findById(id);
+        if (songEntityOptional.isEmpty()) {
+            return null;
+        }
+        var songEntity = songEntityOptional.get();
+        songEntity.setIsFavorite(request.getIsFavorite());
+        songRepository.save(songEntity);
+
+        return transformEntity(songEntity);
+    }
+
     public boolean deleteById(Long id) {
         if (!songRepository.existsById(id)) {
             return false;
