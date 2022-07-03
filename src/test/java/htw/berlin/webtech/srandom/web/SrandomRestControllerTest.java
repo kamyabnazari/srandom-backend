@@ -113,6 +113,38 @@ class SrandomRestControllerTest {
                 // then
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    @DisplayName("should validate favourite song request")
+    void should_validate_favourite_song_request() throws Exception {
+        // given
+        String songToCreateAsJson = "{\"title\": \"All Night\", \"author\":\"\", \"releaseYear\":, \"songLink\":\"0\",\"isOriginal\":\"false\", \"isFavorite\":\"true\"}";
+
+        // when
+        mockMvc.perform(
+                        post("/api/v1/songs")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(songToCreateAsJson)
+                )
+                // then
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("should validate removed song from favourite list")
+    void should_validate_removed_song_from_favourite_list() throws Exception {
+        // given
+        String songToCreateAsJson = "{\"title\": \"Say My Name\", \"author\":\"\", \"releaseYear\":, \"songLink\":\"0\",\"isOriginal\":\"false\", \"isFavorite\":\"false\"}";
+
+        // when
+        mockMvc.perform(
+                        post("/api/v1/songs")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(songToCreateAsJson)
+                )
+                // then
+                .andExpect(status().isBadRequest());
+    }
 }
 
 

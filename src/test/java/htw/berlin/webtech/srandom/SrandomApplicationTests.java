@@ -63,4 +63,13 @@ class SrandomApplicationTests {
 		boolean expectedIsOriginal = false;
 		assertEquals(expectedIsOriginal, actualIsOriginal);
 	}
+
+	@Test
+	@DisplayName("get method of Song and remove song from favourite list")
+	void remove_song_from_fav_list() {
+		Song songObject = new Song(16, "Dale", "Ledri X Kida X Butrint Imeri", 1999, "Link", false, true);
+		boolean actualIsFavorite = songObject.getIsFavorite();
+		boolean expectedIsOriginal = true;
+		assertEquals(expectedIsOriginal, actualIsFavorite);
+	}
 }
