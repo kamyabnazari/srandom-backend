@@ -3,20 +3,26 @@ package htw.berlin.webtech.srandom.web;
 import htw.berlin.webtech.srandom.service.SongService;
 import htw.berlin.webtech.srandom.web.api.Song;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.Mockito.doReturn;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -70,4 +76,44 @@ class SrandomRestControllerTest {
                 // then
                 .andExpect(status().isNotFound());
     }
+
+    @Test
+    @DisplayName("should return 201 http status and Location header when creating a song")
+    void should_return_201_http_status_and_location_header_when_creating_a_song() throws Exception {
+        // given
+        String songToCreateAsJson = "{\"title\": \"Tequila\", \"author\":\"Tayna\", \"releaseYear\":\"2022\", \"songLink\": \"0\", \"isOriginal\": \"false\", \"isFavorite\":\"false\"}";
+        var song = new Song(123, null, null, 2022, null, true, true);
+        doReturn(song).when(songService).create(any());
+
+        // when
+        mockMvc.perform(
+                        post("/api/v1/songs")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(songToCreateAsJson)
+                )
+                // then
+                .andExpect(status().isCreated())
+                .andExpect(header().exists("Location"))
+                .andExpect(header().string("Location", Matchers.equalTo(("/api/v1/songs/" + song.getId()))));
+//            .andExpect(header().string("Location", Matchers.containsString(Long.toString(person.getId()))));
+
+    }
+
+    @Test
+    @DisplayName("should validate create song request")
+    void should_validate_create_song_request() throws Exception {
+        // given
+        String songToCreateAsJson = "{\"title\": \"Tequila\", \"author\":\"\", \"releaseYear\":, \"songLink\":\"0\",\"isOriginal\":\"false\", \"isFavorite\":\"false\"}";
+
+        // when
+        mockMvc.perform(
+                        post("/api/v1/songs")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(songToCreateAsJson)
+                )
+                // then
+                .andExpect(status().isBadRequest());
+    }
 }
+
+
