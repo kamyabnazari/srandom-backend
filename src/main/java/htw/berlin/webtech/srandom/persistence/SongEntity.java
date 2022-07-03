@@ -13,7 +13,7 @@ public class SongEntity {
     // numerischer Wert, sobald ein neuer Datensatz hinzugefügt wird → Strategy
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", updatable = false, nullable = false)
     private long id;
 
     @Column(name = "title", nullable = false)
