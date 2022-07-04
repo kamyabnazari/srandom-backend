@@ -121,28 +121,6 @@ class SrandomRestControllerTest {
     }
 
     @Test
-    @DisplayName("should return 201 http status and Location header when creating a song")
-    void should_return_201_http_status_and_location_header_when_creating_a_song() throws Exception {
-        // given
-        String songToCreateAsJson = "{\"title\": \"Tequila\", \"author\":\"Tayna\", \"releaseYear\":\"2022\", \"songLink\": \"0\", \"isOriginal\": \"true\", \"isFavorite\":\"true\"}";
-        var song = new Song(123, null, null, 2022, null, true, true);
-        doReturn(song).when(songService).create(any());
-
-        // when
-        mockMvc.perform(
-                        post("/api/v1/songs")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(songToCreateAsJson)
-                )
-                // then
-                .andExpect(status().isCreated())
-                .andExpect(header().exists("Location"))
-                .andExpect(header().string("Location", Matchers.equalTo(("/api/v1/songs/" + song.getId()))));
-//            .andExpect(header().string("Location", Matchers.containsString(Long.toString(person.getId()))));
-
-    }
-
-    @Test
     @DisplayName("should return 200 http status and Location header when creating a song")
     void should_return_200_http_status_and_location_header_when_creating_a_song() throws Exception {
         // given
@@ -157,8 +135,8 @@ class SrandomRestControllerTest {
                                 .content(songToCreateAsJson)
                 )
                 // then
-                .andExpect(status().isOk());
-
+                .andExpect(status().isOk())
+                .andExpect(result -> result.getResponse().equals(123));
     }
 
     @Test
