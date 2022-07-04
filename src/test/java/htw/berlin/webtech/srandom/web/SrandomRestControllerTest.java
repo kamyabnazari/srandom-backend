@@ -77,7 +77,7 @@ class SrandomRestControllerTest {
     }
 
     @Test
-    @DisplayName("should return 201 http status and Location header when creating a song")
+    @DisplayName("should return 200 http status and the id when creating a song")
     void should_return_201_http_status_and_location_header_when_creating_a_song() throws Exception {
         // given
         String songToCreateAsJson = "{\"title\": \"Tequila\", \"author\":\"Tayna\", \"releaseYear\":\"2022\", \"songLink\": \"0\", \"isOriginal\": \"false\", \"isFavorite\":\"false\"}";
@@ -91,11 +91,8 @@ class SrandomRestControllerTest {
                                 .content(songToCreateAsJson)
                 )
                 // then
-                .andExpect(status().isCreated())
-                .andExpect(header().exists("Location"))
-                .andExpect(header().string("Location", Matchers.equalTo(("/api/v1/songs/" + song.getId()))));
-//            .andExpect(header().string("Location", Matchers.containsString(Long.toString(person.getId()))));
-
+                .andExpect(status().isOk())
+                .andExpect(result -> result.getResponse().equals(123));
     }
 
     @Test
