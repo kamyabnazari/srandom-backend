@@ -1,7 +1,7 @@
 /**
  * Konfigurationsklasse um CorsMapping zu ermöglichen um Ressourcen
  * von Frontend auf Backend zusenden
- * */
+ */
 
 package htw.berlin.webtech.srandom.config;
 

@@ -23,6 +23,7 @@ public class Song {
         this.isOriginal = isOriginal;
         this.isFavorite = isFavorite;
     }
+
     public long getId() {
         return id;
     }

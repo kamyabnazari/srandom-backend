@@ -1,6 +1,6 @@
 /**
  * Klasse benutzt um Songs zu erstellen und Updaten, ohne ID
- * */
+ */
 
 package htw.berlin.webtech.srandom.web.api;
 
@@ -13,6 +13,7 @@ public class SongCreateOrUpdateRequest {
     private long releaseYear;
     private boolean isOriginal;
     private boolean isFavorite;
+
     public SongCreateOrUpdateRequest(String title, String author, long releaseYear, String songLink, boolean isOriginal, boolean isFavorite) {
         this.title = title;
         this.author = author;
@@ -23,7 +24,8 @@ public class SongCreateOrUpdateRequest {
     }
 
     // Parameterlosen Konstruktor um Post Requests fürs CorsMapping zu erlauben
-    public SongCreateOrUpdateRequest() {}
+    public SongCreateOrUpdateRequest() {
+    }
 
     public String getTitle() {
         return title;

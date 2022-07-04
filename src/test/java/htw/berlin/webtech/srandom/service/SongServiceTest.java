@@ -22,7 +22,7 @@ class SongServiceTest implements WithAssertions {
 
     @Test
     @DisplayName("should return true if delete was successful")
-    void should_return_true_if_delete_was_successful(){
+    void should_return_true_if_delete_was_successful() {
         //given
         Long givenId = 111L;
         doReturn(true).when(repository).existsById(givenId);
@@ -36,7 +36,7 @@ class SongServiceTest implements WithAssertions {
 
     @Test
     @DisplayName("should return false if song to delete does not exist")
-    void should_return_false_if_song_to_delete_does_not_exist(){
+    void should_return_false_if_song_to_delete_does_not_exist() {
 
         //given
         Long givenId = 111L;

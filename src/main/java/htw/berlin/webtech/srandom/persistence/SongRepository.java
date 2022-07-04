@@ -1,6 +1,6 @@
 /**
  * Interface welche zu Laufzeit funktionen zur Verfügung stellt, um mit dem Song Entity zu arbeiten
- * */
+ */
 
 package htw.berlin.webtech.srandom.persistence;
 

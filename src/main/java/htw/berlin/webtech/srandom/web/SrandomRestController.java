@@ -10,7 +10,6 @@ import htw.berlin.webtech.srandom.web.api.SongCreateOrUpdateRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
@@ -46,7 +45,7 @@ public class SrandomRestController {
     }
 
     @PostMapping(path = "/api/v1/songs")
-    public ResponseEntity<Long> createSong(@RequestBody SongCreateOrUpdateRequest request) throws URISyntaxException {
+    public ResponseEntity<Long> createSong(@RequestBody SongCreateOrUpdateRequest request) {
         var song = songService.create(request);
         return ResponseEntity.ok(song.getId());
     }

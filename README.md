@@ -17,7 +17,7 @@ Klicken Sie auf die Herz-Schaltfläche, um das Lied als Favorit zu speichern.
 
 Klicken Sie auf ein Lied in der Favoritenliste, um es zu öffnen.
 
-Klicken Sie auf die Schaltfläche "Anhören", um zum Link des Liedes zu gelangen, so dass Sie das Lied anhören können.
+Klicken Sie auf die Schaltfläche "Anhören", um zum Link des Liedes zu gelangen, sodass Sie das Lied anhören können.
 
 Wenn Sie das Lied aus Ihren Favoriten entfernen möchten, wählen Sie das Lied aus und klicken Sie auf die Schaltfläche
 mit dem gebrochenen Herzen.
