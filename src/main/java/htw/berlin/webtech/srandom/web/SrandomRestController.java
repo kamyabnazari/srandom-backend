@@ -46,10 +46,9 @@ public class SrandomRestController {
     }
 
     @PostMapping(path = "/api/v1/songs")
-    public ResponseEntity<Void> createSong(@RequestBody SongCreateOrUpdateRequest request) throws URISyntaxException {
+    public ResponseEntity<Long> createSong(@RequestBody SongCreateOrUpdateRequest request) throws URISyntaxException {
         var song = songService.create(request);
-        URI uri = new URI("/api/v1/songs/" + song.getId());
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.ok(song.getId());
     }
 
     @PutMapping(path = "/api/v1/songs/{id}")
