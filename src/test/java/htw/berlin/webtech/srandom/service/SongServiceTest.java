@@ -1,6 +1,8 @@
 package htw.berlin.webtech.srandom.service;
 
 import htw.berlin.webtech.srandom.persistence.SongRepository;
+import htw.berlin.webtech.srandom.web.api.Song;
+import htw.berlin.webtech.srandom.web.api.SongCreateOrUpdateRequest;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,6 +10,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
 
 import static org.mockito.Mockito.*;
 
@@ -33,7 +37,6 @@ class SongServiceTest implements WithAssertions {
         verify(repository).deleteById(givenId);
         assertThat(result).isTrue();
     }
-
     @Test
     @DisplayName("should return false if song to delete does not exist")
     void should_return_false_if_song_to_delete_does_not_exist() {
