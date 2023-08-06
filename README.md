@@ -1,34 +1,34 @@
-[![Java CI with Gradle](https://github.com/kamyab-nazari/Srandom/actions/workflows/gradle.yml/badge.svg?branch=main)](https://github.com/kamyab-nazari/Srandom/actions/workflows/gradle.yml)
-
 # Srandom-Backend
 
-## Beschreibung
+![Banner Image](/readme-screenshot.jpg)
 
-Die folgende Applikation "Srandom" erfüllt die Aufgabe, zufällige Lieder und Empfehlungen den Besucher vorzuschlagen und
-diese mit einem Klick für weiteres hören zur Verfügung zustellen.
+## Status
 
-Hier befindet sich das Backend der Applikation.
+[![Java CI with Gradle](https://github.com/kamyab-nazari/Srandom/actions/workflows/gradle.yml/badge.svg?branch=main)](https://github.com/kamyab-nazari/Srandom/actions/workflows/gradle.yml)
 
-## Anleitung
+## Description
 
-Klicken Sie auf die Wiederholungstaste, um ein weiteres zufälliges Lied zu hören!
+The following application, "Srandom," serves the purpose of suggesting random songs and recommendations to visitors, making them available for further listening with just a click.
 
-Klicken Sie auf die Herz-Schaltfläche, um das Lied als Favorit zu speichern.
+This is the backend of the application.
 
-Klicken Sie auf ein Lied in der Favoritenliste, um es zu öffnen.
+## Instructions
 
-Klicken Sie auf die Schaltfläche "Anhören", um zum Link des Liedes zu gelangen, sodass Sie das Lied anhören können.
+Click the repeat button to hear another random song!
 
-Wenn Sie das Lied aus Ihren Favoriten entfernen möchten, wählen Sie das Lied aus und klicken Sie auf die Schaltfläche
-mit dem gebrochenen Herzen.
+Click the heart button to save the song as a favorite.
 
-Wenn Sie der Bibliothek Ihren eigenen Song hinzufügen möchten, gehen Sie zu Songs und klicken Sie auf die
-Plus-Schaltfläche unten rechts auf dem Bildschirm.
+Click a song in the favorites list to open it.
 
-Wenn Sie das Lied nicht in Ihrer Bibliothek haben möchten, entfernen Sie es, indem Sie zu Lieder gehen und auf die
-Schaltfläche mit dem Kreuz oben rechts neben dem Lied klicken.
+Click the "Listen" button to go to the song's link, so you can listen to the song.
 
-## Mitglieder
+If you want to remove the song from your favorites, select the song and click the button with the broken heart.
+
+If you want to add your own song to the library, go to Songs and click the plus button in the lower right corner of the screen.
+
+If you do not want to have the song in your library, remove it by going to Songs and clicking the button with the cross in the upper right next to the song.
+
+## Members
 
 * Florina Jonuzi
 * Kamyab Nazari
