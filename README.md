@@ -1,6 +1,6 @@
 # Srandom-Backend
 
-![Banner Image](/readme-screenshot.jpg)
+![Banner Image](cover-open-source-srandom.webp)
 
 ## Status
 
@@ -30,15 +30,15 @@ If you do not want to have the song in your library, remove it by going to Songs
 
 ## Members
 
-* Florina Jonuzi
-* Kamyab Nazari
+- Florina Jonuzi
+- Kamyab Nazari
 
 ## Tech stack
 
-* Java JDK 17
-* Gradle 7.4
-* NodeJs 16.14
-* Spring Boot 2.6.2
-* Thymeleaf, Spring Web, Spring Boot DevTools
-* Heroku
-* Vue.js
+- Java JDK 17
+- Gradle 7.4
+- NodeJs 16.14
+- Spring Boot 2.6.2
+- Thymeleaf, Spring Web, Spring Boot DevTools
+- Heroku
+- Vue.js
